@@ -1,12 +1,18 @@
 it('sem testes, ainda', () => { })
 
-const getSomething = () => 10;
+const getSomething = () => {
+    return new Promise((resolve,reject) => {
+    setTimeout(() => {
+        resolve(13);
+    }, 1000);
+    })
+}
 
 const system = () => {
     console.log('init');
-    const something = getSomething();
-    console.log(`Something is ${something}`);
+    getSomething().then(some => {
+        console.log(`Something is ${some}`);
+    });
     console.log('end')
 }
 system();
-// system();npm run cypress:open //
